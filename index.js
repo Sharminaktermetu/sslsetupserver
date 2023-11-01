@@ -53,29 +53,23 @@ app.post('/ssl-request', (req, res) => {
     const sslcz = new SSLCommerzPayment(store_id, store_passwd, is_live)
     sslcz.init(data).then(apiResponse => {
         // Redirect the user to payment gateway
-        const GatewayPageURL = apiResponse.GatewayPageURL
-        if (GatewayPageURL) {
-            return res.send({url:GatewayPageURL});
-          }
-          else {
-            return res.status(400).json({
-              message: "Session was not successful"
-            });
-        }
+        let GatewayPageURL = apiResponse.GatewayPageURL
+       
+             res.send({url:GatewayPageURL});
+       
         
+            app.post("/ssl-payment-success", async (req, res) => {
+
+               res.redirect('https://setup-2dac0.web.app/ssl-payment-success')
+            })
+            
     });
 
 
 })
 
-  app.post("/ssl-payment-success", async (req, res) => {
 
-    return res.redirect('https://setup-2dac0.web.app/ssl-payment-success')
-  })
-  app.post("/ssl-payment-fail", async (req, res) => {
 
-     res.redirect('https://setup-2dac0.web.app/ssl-payment-fail')
-  })
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
