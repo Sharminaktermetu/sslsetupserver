@@ -31,7 +31,7 @@ app.post('/ssl-request', (req, res) => {
         total_amount: 100,
         currency: 'BDT',
         tran_id: 'REF123', // use unique tran_id for each api call
-        success_url: `http://localhost:3030/ssl-payment-success`,
+        success_url: `https://ssl-payment.onrender.com/ssl-payment-success`,
         fail_url: 'http://localhost:3030/fail',
         cancel_url: 'http://localhost:3030/cancel',
         ipn_url: 'http://localhost:3030/ipn',
@@ -77,7 +77,7 @@ app.post('/ssl-request', (req, res) => {
 
   app.post("/ssl-payment-success", async (req, res) => {
 
-    return res.redirect('http://localhost:5173/ssl-payment-success')
+    return res.redirect('https://setup-2dac0.web.app/ssl-payment-success')
   })
 
 app.listen(port, () => {
