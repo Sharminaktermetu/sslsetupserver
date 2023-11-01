@@ -9,7 +9,7 @@ const is_live = false //true for live, false for sandbox
 app.use(cors());
 app.use(express.json())
 
-const port = 3030
+// const port = 3030
 app.get('/', async (req, res) => {
 
     /** 
