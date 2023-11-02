@@ -25,7 +25,7 @@ app.get('/', async (req, res) => {
 app.post('/ssl-request', (req, res) => {
   
     const data = {
-        total_amount: 100,
+        total_amount: 200,
         currency: 'BDT',
         tran_id: 'REF123', // use unique tran_id for each api call
         success_url: `https://setup-2dac0.web.app/payment-success`,
