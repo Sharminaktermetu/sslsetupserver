@@ -29,7 +29,7 @@ app.post('/ssl-request', (req, res) => {
         currency: 'BDT',
         tran_id: 'REF123', // use unique tran_id for each api call
         success_url: `https://setup-2dac0.web.app/payment-success`,
-        fail_url: 'http://localhost:5173/ssl-payment-fail',
+        fail_url: 'https://setup-2dac0.web.app/payment-fail',
         cancel_url: 'http://localhost:3030/cancel',
         ipn_url: 'http://localhost:3030/ipn',
         shipping_method: 'Courier',
@@ -75,6 +75,10 @@ app.post('/ssl-request', (req, res) => {
   app.post("/payment-success", async (req, res) => {
 
     return res.redirect('https://setup-2dac0.web.app/payment-success')
+  })
+  app.post("/payment-fail", async (req, res) => {
+
+    return res.redirect('https://setup-2dac0.web.app/payment-fail')
   })
 
 
